@@ -12,7 +12,7 @@ Faker::Config.locale = 'fr'
 
 
 10.times do |i|
-  User.create!(email: "user_#{i+1}@yopmail.com", encrypted_password: "pass", first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, description: Faker::Lorem.paragraph)
+  User.create!(email: "user_#{i+1}@yopmail.com", encrypted_password: "123456", first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, description: Faker::Lorem.paragraph)
 end
 puts "10 User Done"
 

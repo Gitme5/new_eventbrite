@@ -1,11 +1,11 @@
 class User < ApplicationRecord
 
 	# Envoi un mail apres chaque création d'utilisateur
-	#after_create :welcome_send
+	after_create :welcome_send
 
-  #def welcome_send
-  #  UserMailer.welcome_email(self).deliver_now
-  #end
+  def welcome_send
+    UserMailer.welcome_email(self).deliver_now
+  end
   
 	has_many :attendances
 	has_many :events, through: :attendances
