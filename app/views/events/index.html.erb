@@ -1,43 +1,49 @@
+
 <!DOCTYPE html>
-<html>
+  <html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <h1>HELLOW WORLD</h1>
-    <p>HELLO</p>
+    <title>thpeventbrite</title>
 
   </head>
+  
+  
+ <header>
+      
+    <div class="jumbotron" style=" background-color: #4c4c4d;">
+    
+      <h1> Find the best events in town, downtown, uptown, suburbs, and so much more</h1> 
+      <h2 style=" color:white;" >on this website !</h2>
+      <div class="d-flex justify-content-end">
+        <a  class="btn btn-outline-success my-2 my-sm-0" <%= link_to "Create an event", new_event_path %></a>
+      </div>
+    </div>
 
-	 <ul>
-	  <% if user_signed_in? %>
-	    <li>
-	      <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
-	    </li>
+ </header>
 
-	    <li>
-	      Voici ton email : <%= current_user.email %>
-	    </li>
-
-	    <li>
-	      <%= link_to "Secret page", static_pages_secret_path %>
-	    </li>
-
-	    <li>
-	      <%= link_to "Edit email / password", edit_user_registration_path %>
-	    </li>
-
-	  <% else %>
-	    <li>    
-	      <%= link_to "Sign in", new_user_session_path %>
-	    </li>
-
-	    <li>
-	      <%= link_to "Sign up", new_user_registration_path %>
-	    </li>
-
-	  <% end %>
-	</ul>
 
   <body>
-    <%= yield %>
-  </body>
-</html>
+
+
+  <div style="" class="text-center d-flex flex-wrap justify-content-around mx-4">
+   <% Event.all.reverse.each do |event| %>
+   <div class="card m-4" style="width: 18rem;">
+    <div class="card-body">
+      <h3  style="font-size: 3em" class=" card-title"><%= event.title %></h3>
+       <p style="font-weight: italic; font-size: 2em;" class=" text-center card-text"><%= event.description %></p>
+       <p style="font-weight: italic; font-size: 2em;" class=" text-center card-text"><%= event.price %>€</p>
+
+        <a  style="font-size: 2em;font-family: 'Reenie Beanie';" href="<%= event_path(event.id) %>" class="btn btn-warning">Discover event</a>
+
+
+    </div>
+  </div>
+
+   <% end %>
+  </div>
+
+  		 
+
+
+    
+    </body>
+    </html>
