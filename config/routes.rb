@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
 	
+  get 'users/show'
 	devise_for :users 	
   get 'static_pages/index'
   get 'static_pages/secret'
 	resources :event
+	resources :user
   #root to: 'static_pages#index'
   root to: 'events#index' # page d'accueil
 

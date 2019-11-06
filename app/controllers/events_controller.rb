@@ -1,6 +1,14 @@
 class EventsController < ApplicationController
 
 	def index
-		@time = Time.now
+		@events = Event.all
+	end
+
+	def new
+
+	end
+
+	def show
+		
 	end
 end
