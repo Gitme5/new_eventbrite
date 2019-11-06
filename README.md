@@ -1,24 +1,13 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+EVENTBRITE APP
 
-Things you may want to cover:
+Heroku link - non fonctionnel
+https://app-eventbrite.herokuapp.com/
 
-* Ruby version
+App Rails pour tester
+- Bundle install
+- rails db:create
+- rails db:migrate
+- rails db:seed
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
