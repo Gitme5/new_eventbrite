@@ -1,15 +1,35 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <h1>HELLO WORLD</h1>
-    <p>HELLO</p>
-    <%= @time = Time.now %>
-    <%= link_to "Sign in", new_user_session_path %>
+<!-- Affichage principal et des tous les gossips-->
 
-  </head>
+<div class = "container jumb">
+	<div class="jumbotron">
+	  <h5 class="display-4">Bienvenue sur la mauvaise copie de EventBrite</h5>
+	  <p class="lead">Trés mauvaise ....</p>
+	  <hr class="my-4">
+	  <p>Découvrez les événements de votre région. </p>
+	</div>
+</div>
 
-  <body>
-    <%= yield %>
-  </body>
-</html>
+<div class="container">
+
+  <br>
+  <h1>Nos événements</h1>
+  <br>
+
+  <!-- Afficher le contenu des events -->
+  <div class="card-columns" style = "display-flex">
+    <% @events.each_with_index do |event,index| %>
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title"><%= event.title %></h5>
+          <p class="card-text text-right">Commence le <%= event.start_date.to_formatted_s(:short) %></p>
+          <p class="card-text"> <%= event.description %></p><br>
+          <%= link_to "consulter", event_path(event.id), class: "card-link btn btn-warning text-right" %>
+          <br><br>
+          <p class="card-text"><small class="text-muted"> Créé le <%= event.created_at %></small></p>
+        </div>
+      </div>
+      <br>
+    <% end %>
+  </div>
+
+</div>
